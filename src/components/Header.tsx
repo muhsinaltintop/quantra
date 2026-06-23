@@ -42,7 +42,7 @@ export function Header() {
           </nav>
 
           <Link
-            href="/contact"
+            href="/free-assessment"
             className="hidden rounded-full border border-gold-400/80 px-5 py-2.5 text-sm font-semibold text-navy-900 transition hover:bg-gold-400 hover:text-navy-950 sm:inline-flex"
           >
             Free Assessment
