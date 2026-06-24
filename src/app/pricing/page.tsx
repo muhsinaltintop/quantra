@@ -127,7 +127,7 @@ export default function PricingPage() {
           <SectionHeading
             eyebrow="Pricing tiers"
             title="Select a starting point, then refine it through assessment."
-            description="Each tier is designed for easy comparison, with monthly pricing placeholders that can be updated as programme structures evolve."
+            description="Each tier is designed for easy comparison, with indicative monthly pricing that can be confirmed after the free academic assessment."
             align="center"
           />
           <div className="mt-12 grid gap-6 lg:grid-cols-3">

@@ -28,7 +28,7 @@ export function FAQSection({ eyebrow = "FAQ", title, description, faqs, backgrou
         <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-2">
           {faqs.map((faq) => (
             <article key={faq.question} className="rounded-3xl border border-navy-900/10 bg-white/75 p-7 shadow-sm backdrop-blur">
-              <h2 className="font-serif text-2xl font-semibold text-navy-950">{faq.question}</h2>
+              <h3 className="font-serif text-2xl font-semibold text-navy-950">{faq.question}</h3>
               <p className="mt-4 text-sm leading-7 text-navy-800/75">{faq.answer}</p>
             </article>
           ))}

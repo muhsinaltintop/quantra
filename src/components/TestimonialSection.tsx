@@ -1,5 +1,6 @@
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
+import { testimonials as approvedTestimonials } from "@/content/testimonials";
 
 export type Testimonial = {
   quote: string;
@@ -8,42 +9,19 @@ export type Testimonial = {
   location?: string;
 };
 
-const defaultTestimonials: Testimonial[] = [
-  {
-    quote:
-      "QUANTRA gave us a clear picture of our daughter’s strengths and gaps. The consultation felt thoughtful, structured, and genuinely academic.",
-    name: "Parent testimonial placeholder",
-    role: "Parent",
-    location: "International family",
-  },
-  {
-    quote:
-      "The lessons are focused and easy to follow. I like how every topic links back to exam questions and how to improve my answers.",
-    name: "Student testimonial placeholder",
-    role: "IGCSE Student",
-  },
-  {
-    quote:
-      "We wanted serious preparation without overcrowded classes. QUANTRA’s small group approach feels premium and very well organised.",
-    name: "Parent testimonial placeholder",
-    role: "Parent",
-    location: "International family",
-  },
-];
-
 type TestimonialSectionProps = {
   testimonials?: Testimonial[];
   background?: "white" | "ivory";
 };
 
-export function TestimonialSection({ testimonials = defaultTestimonials, background = "white" }: TestimonialSectionProps) {
+export function TestimonialSection({ testimonials = approvedTestimonials, background = "white" }: TestimonialSectionProps) {
   return (
     <section className={`${background === "white" ? "bg-white" : "bg-ivory"} py-20`}>
       <Container>
         <SectionHeading
           eyebrow="Testimonials"
-          title="Parent-focused feedback placeholders for a premium academic experience."
-          description="These testimonials are launch-stage placeholders and should be replaced with approved family feedback before publication."
+          title="Feedback from families preparing with structure and purpose."
+          description="Representative feedback demonstrates the clarity, structure, and exam focus families can expect from QUANTRA."
           align="center"
         />
         <div className="mt-12 grid gap-6 lg:grid-cols-3">

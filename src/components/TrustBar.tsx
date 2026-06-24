@@ -1,19 +1,12 @@
 import { Container } from "@/components/Container";
-
-const defaultIndicators = [
-  "UK-Based Education Provider",
-  "Cambridge-Focused Preparation",
-  "Qualified Teachers",
-  "Structured Learning Pathways",
-  "Online Learning Flexibility",
-];
+import { trustIndicators } from "@/content/home";
 
 type TrustBarProps = {
   indicators?: string[];
   tone?: "light" | "dark";
 };
 
-export function TrustBar({ indicators = defaultIndicators, tone = "dark" }: TrustBarProps) {
+export function TrustBar({ indicators = trustIndicators, tone = "dark" }: TrustBarProps) {
   const isDark = tone === "dark";
 
   return (

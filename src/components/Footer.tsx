@@ -1,14 +1,6 @@
 import Link from "next/link";
 import { Container } from "./Container";
-
-const footerLinks = [
-  { name: "About", href: "/about" },
-  { name: "Programmes", href: "/programmes" },
-  { name: "Pricing", href: "/pricing" },
-  { name: "Subjects", href: "/subjects" },
-  { name: "Resources", href: "/resources" },
-  { name: "Contact", href: "/contact" },
-];
+import { footerLinks } from "@/constants/navigation";
 
 export function Footer() {
   return (

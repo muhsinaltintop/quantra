@@ -1,0 +1,15 @@
+export const trustIndicators = ["UK-Based Education Provider", "Cambridge-Focused Preparation", "Qualified Teachers", "Structured Learning Pathways", "Online Learning Flexibility"];
+export const resultMetrics = [
+  { value: "4", label: "Initial subject pathways" }, { value: "3", label: "Programme formats" }, { value: "6", label: "Assessment journey steps" }, { value: "100%", label: "Online learning model" },
+];
+export const whyQuantraCards = [
+  { title: "Expert Academic Guidance", description: "Students learn with qualified specialist teachers who provide clear instruction, rigorous feedback, and confident academic direction." }, { title: "Small Group Learning", description: "Focused classes give every student the space to ask questions, practise deeply, and receive meaningful teacher attention." }, { title: "Personalised Study Pathways", description: "Academic plans are shaped around each student’s current level, target grade, learning gaps, and exam timeline." }, { title: "Exam-Focused Preparation", description: "Every lesson is connected to specification mastery, exam technique, structured practice, and measurable progress." },
+];
+export const homeProgrammeCards = [
+  { title: "Small Group Classes", description: "Weekly online classes that combine expert teaching, guided practice, homework review, and ongoing progress monitoring.", detail: "Ideal for consistent term-time support and confident subject development." }, { title: "Intensive Revision Courses", description: "High-impact revision programmes designed to consolidate key topics, remove uncertainty, and strengthen exam performance.", detail: "Ideal before mocks, final exams, and demanding assessment windows." }, { title: "Mock Exam Preparation", description: "Structured mock preparation with diagnostic feedback, targeted revision priorities, and exam-readiness coaching.", detail: "Ideal for building confidence under timed conditions." },
+];
+export const subjectFocus = ["GCSE Mathematics", "IGCSE Mathematics", "GCSE Physics", "IGCSE Physics"];
+export const platformBenefits = ["Diagnostic assessments", "Topic-by-topic progress tracking", "Personalised revision plans", "Practice tests", "Parent-friendly progress insights", "Exam readiness monitoring"];
+export const studentJourneySteps = [
+  { title: "Complete the enquiry form", description: "Share your child’s subject, exam board, current confidence level, and academic goals." }, { title: "Take a free academic assessment", description: "Identify strengths, gaps, and preparation priorities before choosing a programme." }, { title: "Attend an academic consultation", description: "Discuss the assessment outcome with parent-friendly guidance and clear next steps." }, { title: "Receive a personalised study plan", description: "Understand the recommended pathway, subject focus, and learning rhythm." }, { title: "Join the right programme", description: "Begin structured online teaching matched to your child’s needs and timetable." }, { title: "Track progress and prepare for exams", description: "Use regular feedback and exam-style practice to support confident preparation." },
+];

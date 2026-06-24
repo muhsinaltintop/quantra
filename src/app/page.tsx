@@ -7,93 +7,8 @@ import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { ResultsSection } from "@/components/ResultsSection";
 import { TestimonialSection } from "@/components/TestimonialSection";
 import { TrustBar } from "@/components/TrustBar";
-
-const whyQuantraCards = [
-  {
-    title: "Expert Academic Guidance",
-    description:
-      "Students learn with qualified specialist teachers who provide clear instruction, rigorous feedback, and confident academic direction.",
-  },
-  {
-    title: "Small Group Learning",
-    description:
-      "Focused classes give every student the space to ask questions, practise deeply, and receive meaningful teacher attention.",
-  },
-  {
-    title: "Personalised Study Pathways",
-    description:
-      "Academic plans are shaped around each student’s current level, target grade, learning gaps, and exam timeline.",
-  },
-  {
-    title: "Exam-Focused Preparation",
-    description:
-      "Every lesson is connected to specification mastery, exam technique, structured practice, and measurable progress.",
-  },
-];
-
-const programmeCards = [
-  {
-    title: "Small Group Classes",
-    description:
-      "Weekly online classes that combine expert teaching, guided practice, homework review, and ongoing progress monitoring.",
-    detail: "Ideal for consistent term-time support and confident subject development.",
-  },
-  {
-    title: "Intensive Revision Courses",
-    description:
-      "High-impact revision programmes designed to consolidate key topics, remove uncertainty, and strengthen exam performance.",
-    detail: "Ideal before mocks, final exams, and demanding assessment windows.",
-  },
-  {
-    title: "Mock Exam Preparation",
-    description:
-      "Structured mock preparation with diagnostic feedback, targeted revision priorities, and exam-readiness coaching.",
-    detail: "Ideal for building confidence under timed conditions.",
-  },
-];
-
-const subjectFocus = ["GCSE Mathematics", "IGCSE Mathematics", "GCSE Physics", "IGCSE Physics"];
-
-const platformBenefits = [
-  "Diagnostic assessments",
-  "Topic-by-topic progress tracking",
-  "Personalised revision plans",
-  "Practice tests",
-  "Parent-friendly progress insights",
-  "Exam readiness monitoring",
-];
-
-const studentJourneySteps = [
-  { title: "Complete the enquiry form", description: "Share your child’s subject, exam board, current confidence level, and academic goals." },
-  { title: "Take a free academic assessment", description: "Identify strengths, gaps, and preparation priorities before choosing a programme." },
-  { title: "Attend an academic consultation", description: "Discuss the assessment outcome with parent-friendly guidance and clear next steps." },
-  { title: "Receive a personalised study plan", description: "Understand the recommended pathway, subject focus, and learning rhythm." },
-  { title: "Join the right programme", description: "Begin structured online teaching matched to your child’s needs and timetable." },
-  { title: "Track progress and prepare for exams", description: "Use regular feedback and exam-style practice to support confident preparation." },
-];
-
-const homepageFaqs = [
-  {
-    question: "Is QUANTRA suitable for my child’s exam board?",
-    answer:
-      "QUANTRA focuses on GCSE and IGCSE preparation, with Cambridge-focused pathways for international learners. The free assessment helps confirm the most suitable support route.",
-  },
-  {
-    question: "How do parents understand progress?",
-    answer:
-      "Families receive clear guidance on strengths, gaps, priorities, and next steps so progress feels structured rather than vague.",
-  },
-  {
-    question: "Are classes online?",
-    answer:
-      "Yes. QUANTRA is designed for online learning flexibility, combining live teaching with structured preparation and parent-friendly communication.",
-  },
-  {
-    question: "Will the assessment guarantee a result?",
-    answer:
-      "No. The assessment is used to recommend an appropriate pathway. Outcomes depend on the student’s starting point, attendance, practice, and wider academic context.",
-  },
-];
+import { homepageFaqs } from "@/content/faq";
+import { homeProgrammeCards, platformBenefits, studentJourneySteps, subjectFocus, whyQuantraCards } from "@/content/home";
 
 export default function Home() {
   return (
@@ -182,7 +97,7 @@ export default function Home() {
             description="Choose the right level of support for steady learning, intensive revision, or high-confidence mock exam performance."
           />
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {programmeCards.map((programme) => (
+            {homeProgrammeCards.map((programme) => (
               <article key={programme.title} className="flex h-full flex-col rounded-3xl border border-white/70 bg-white/75 p-8 shadow-sm backdrop-blur">
                 <div className="mb-7 h-1 w-16 rounded-full bg-gold-400" />
                 <h3 className="font-serif text-2xl font-semibold text-navy-950">{programme.title}</h3>

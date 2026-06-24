@@ -175,7 +175,7 @@ export function AssessmentEnquiryForm() {
     <form onSubmit={handleSubmit} className="rounded-[2rem] border border-white/80 bg-white/90 p-6 shadow-academic sm:p-8">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.28em] text-gold-500">Step {currentStep + 1} of 5</p>
+          <p className="text-sm font-bold uppercase tracking-[0.28em] text-gold-500">Step {currentStep + 1} of {steps.length}</p>
           <h2 className="mt-2 font-serif text-2xl font-semibold text-navy-950">{step.title}</h2>
           <p className="mt-1 text-sm text-navy-700">{step.description}</p>
         </div>
@@ -221,15 +221,15 @@ export function AssessmentEnquiryForm() {
       </div>
 
       <div className="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:justify-between">
-        <button type="button" onClick={() => setCurrentStep((step) => Math.max(step - 1, 0))} disabled={currentStep === 0 || isSubmitting} className="rounded-full border border-navy-900/20 px-6 py-3 text-sm font-semibold text-navy-800 disabled:cursor-not-allowed disabled:opacity-40">
+        <button type="button" onClick={() => setCurrentStep((step) => Math.max(step - 1, 0))} disabled={currentStep === 0 || isSubmitting} className="min-h-11 rounded-full border border-navy-900/20 px-6 py-3 text-sm font-semibold text-navy-800 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-400 disabled:cursor-not-allowed disabled:opacity-40">
           Back
         </button>
         {currentStep < steps.length - 1 ? (
-          <button type="button" onClick={goNext} className="rounded-full bg-navy-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-navy-800">
+          <button type="button" onClick={goNext} className="min-h-11 rounded-full bg-navy-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-navy-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-400">
             Continue
           </button>
         ) : (
-          <button type="submit" disabled={isSubmitting} className="rounded-full bg-navy-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-navy-800 disabled:cursor-wait disabled:opacity-70">
+          <button type="submit" disabled={isSubmitting} className="min-h-11 rounded-full bg-navy-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-navy-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-400 disabled:cursor-wait disabled:opacity-70">
             {isSubmitting ? "Submitting..." : "Submit enquiry"}
           </button>
         )}
@@ -249,24 +249,30 @@ type InputProps = {
 };
 
 function TextInput({ label, field, value, error, onChange, type = "text", placeholder }: InputProps) {
+  const inputId = `assessment-${field}`;
+  const errorId = `${inputId}-error`;
+
   return (
-    <label className="block text-sm font-semibold text-navy-900">
+    <label htmlFor={inputId} className="block text-sm font-semibold text-navy-900">
       {label}
-      <input type={type} value={value} placeholder={placeholder} onChange={(event) => onChange(field, event.target.value)} className="mt-2 w-full rounded-2xl border border-navy-900/15 bg-white px-4 py-3 text-base font-normal text-navy-950 outline-none transition focus:border-gold-400 focus:ring-4 focus:ring-gold-300/20" />
-      {error && <span className="mt-2 block text-sm font-medium text-red-600">{error}</span>}
+      <input id={inputId} name={field} type={type} value={value} placeholder={placeholder} aria-invalid={Boolean(error)} aria-describedby={error ? errorId : undefined} onChange={(event) => onChange(field, event.target.value)} className="mt-2 min-h-11 w-full rounded-2xl border border-navy-900/15 bg-white px-4 py-3 text-base font-normal text-navy-950 outline-none transition focus:border-gold-400 focus:ring-4 focus:ring-gold-300/20" />
+      {error && <span id={errorId} className="mt-2 block text-sm font-medium text-red-600">{error}</span>}
     </label>
   );
 }
 
 function SelectInput({ label, field, value, error, onChange, options }: InputProps & { options: string[] }) {
+  const inputId = `assessment-${field}`;
+  const errorId = `${inputId}-error`;
+
   return (
-    <label className="block text-sm font-semibold text-navy-900">
+    <label htmlFor={inputId} className="block text-sm font-semibold text-navy-900">
       {label}
-      <select value={value} onChange={(event) => onChange(field, event.target.value)} className="mt-2 w-full rounded-2xl border border-navy-900/15 bg-white px-4 py-3 text-base font-normal text-navy-950 outline-none transition focus:border-gold-400 focus:ring-4 focus:ring-gold-300/20">
+      <select id={inputId} name={field} value={value} aria-invalid={Boolean(error)} aria-describedby={error ? errorId : undefined} onChange={(event) => onChange(field, event.target.value)} className="mt-2 min-h-11 w-full rounded-2xl border border-navy-900/15 bg-white px-4 py-3 text-base font-normal text-navy-950 outline-none transition focus:border-gold-400 focus:ring-4 focus:ring-gold-300/20">
         <option value="">Select an option</option>
         {options.map((option) => <option key={option} value={option}>{option}</option>)}
       </select>
-      {error && <span className="mt-2 block text-sm font-medium text-red-600">{error}</span>}
+      {error && <span id={errorId} className="mt-2 block text-sm font-medium text-red-600">{error}</span>}
     </label>
   );
 }
@@ -278,7 +284,7 @@ function CheckboxGroup({ label, options, values, error, onToggle }: { label: str
       <div className="mt-3 grid gap-3">
         {options.map((option) => (
           <label key={option} className="flex items-center gap-3 text-sm font-medium text-navy-800">
-            <input type="checkbox" checked={values.includes(option)} onChange={() => onToggle(option)} className="h-4 w-4 rounded border-navy-900/20 text-navy-900 focus:ring-gold-400" />
+            <input type="checkbox" checked={values.includes(option)} onChange={() => onToggle(option)} className="h-5 w-5 rounded border-navy-900/20 text-navy-900 focus:ring-gold-400" />
             {option}
           </label>
         ))}

@@ -7,6 +7,7 @@ import { AssessmentCTA } from "@/components/AssessmentCTA";
 import { FAQSection } from "@/components/FAQSection";
 import { ResultsSection } from "@/components/ResultsSection";
 import { TrustBar } from "@/components/TrustBar";
+import { programmeFaqs } from "@/content/programmes";
 
 export const metadata: Metadata = createMetadata({
   title: "GCSE & IGCSE Tuition Programmes",
@@ -96,13 +97,6 @@ const programmeDetails = [
       "Revision recommendations to guide the next stage of study",
     ],
   },
-];
-
-const programmeFaqs = [
-  { question: "Which programme should my child start with?", answer: "The free assessment helps identify whether ongoing small group learning, intensive revision, or mock exam preparation is the most appropriate starting point." },
-  { question: "Can programmes support Cambridge IGCSE learners?", answer: "Yes. QUANTRA includes Cambridge-focused preparation and uses syllabus clarity, exam-style practice, and structured feedback to guide international learners." },
-  { question: "Is one-to-one support required?", answer: "Not always. Many students benefit from group structure, while optional one-to-one support can be added for specific gaps, confidence issues, or assessment deadlines." },
-  { question: "Do programmes promise grade improvements?", answer: "No. QUANTRA avoids guaranteed outcome claims. Progress depends on the student’s starting point, attendance, independent practice, and assessment context." },
 ];
 
 export default function ProgrammesPage() {

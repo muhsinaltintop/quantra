@@ -3,6 +3,7 @@ import { createMetadata } from "@/lib/seo";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
+import { learningPillars, philosophyPoints, supportCards } from "@/content/about";
 
 export const metadata: Metadata = createMetadata({
   title: "About QUANTRA Education",
@@ -10,54 +11,6 @@ export const metadata: Metadata = createMetadata({
   path: "/about",
   keywords: ["GCSE tutors UAE", "IGCSE tutors Dubai", "Online GCSE tuition"],
 });
-
-const philosophyPoints = [
-  "Every student brings different strengths, gaps, and academic habits to the exam journey.",
-  "Effective preparation should be structured, measurable, and supportive from the first assessment onwards.",
-  "Small group learning can combine shared motivation with meaningful individual attention.",
-  "Exam preparation should include content mastery, careful practice, feedback, and confidence building.",
-];
-
-const supportCards = [
-  {
-    title: "Students aiming to improve grades",
-    description:
-      "Learners who want clearer understanding, stronger exam technique, and a structured route towards higher performance.",
-  },
-  {
-    title: "Parents looking for structured academic support",
-    description:
-      "Families seeking a calm, rigorous, and transparent approach to tuition, progress monitoring, and exam preparation.",
-  },
-  {
-    title: "International families preparing for British curriculum exams",
-    description:
-      "Students overseas who need focused guidance for GCSE and IGCSE expectations, assessment styles, and academic standards.",
-  },
-];
-
-const learningPillars = [
-  {
-    title: "Assessment",
-    description:
-      "We begin by understanding each student’s current level, confidence, and priority gaps before recommending a pathway.",
-  },
-  {
-    title: "Personalised Planning",
-    description:
-      "Students receive clear academic priorities shaped around their subject needs, exam timeline, and target outcomes.",
-  },
-  {
-    title: "Guided Learning",
-    description:
-      "Lessons combine expert explanation, structured practice, and careful feedback to strengthen both knowledge and technique.",
-  },
-  {
-    title: "Progress Tracking",
-    description:
-      "Ongoing review helps students and parents see development, identify next steps, and prepare with greater assurance.",
-  },
-];
 
 export default function AboutPage() {
   return (
