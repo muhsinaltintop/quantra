@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { AssessmentCTA } from "@/components/AssessmentCTA";
 import { FAQSection } from "@/components/FAQSection";
 import { TrustBar } from "@/components/TrustBar";
+import { subjectsFaqs } from "@/content/subjects";
 
 export const metadata: Metadata = createMetadata({
   title: "GCSE & IGCSE Subjects",
@@ -80,13 +81,6 @@ const supportPillars = [
     description:
       "Parents and students receive structured insight into academic progress, completed topics, next priorities, and exam readiness.",
   },
-];
-
-const subjectsFaqs = [
-  { question: "Which subjects does QUANTRA currently support?", answer: "QUANTRA currently highlights Mathematics and Physics pathways for GCSE and IGCSE students, with additional subjects planned as specialist resources are developed." },
-  { question: "Is the subject support Cambridge-focused?", answer: "Yes. IGCSE pathways include Cambridge-focused preparation, with attention to syllabus coverage, exam technique, and structured practice." },
-  { question: "Can my child get help with a specific topic?", answer: "Yes. The assessment and consultation help identify priority topics, then the recommended pathway can focus on gaps, confidence, and exam-style application." },
-  { question: "Are more subjects guaranteed by a specific date?", answer: "No. Additional subjects will be introduced carefully as suitable teachers, curriculum planning, and learning resources are ready." },
 ];
 
 export default function SubjectsPage() {
