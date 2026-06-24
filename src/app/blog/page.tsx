@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
+import { createMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { BlogIndex } from "./_components/BlogIndex";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { articles, blogCategories, getFeaturedArticle } from "@/lib/blog";
 
-export const metadata: Metadata = {
-  title: "GCSE & IGCSE Blog | QUANTRA Education",
+export const metadata: Metadata = createMetadata({
+  title: "GCSE & IGCSE Study Blog",
   description: "Educational articles on GCSE success, IGCSE preparation, revision techniques, exam planning, and parent guidance.",
-};
+  path: "/blog",
+  keywords: ['GCSE tuition', 'IGCSE tuition', 'Online GCSE tuition'],
+});
 
 export default function BlogPage() {
   const featured = getFeaturedArticle();

@@ -1,6 +1,15 @@
+import type { Metadata } from "next";
+import { createMetadata } from "@/lib/seo";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
+
+export const metadata: Metadata = createMetadata({
+  title: "About QUANTRA Education",
+  description: "Learn about QUANTRA Education’s UK-based online GCSE and IGCSE tuition for ambitious international families seeking structured exam preparation.",
+  path: "/about",
+  keywords: ["GCSE tutors UAE", "IGCSE tutors Dubai", "Online GCSE tuition"],
+});
 
 const philosophyPoints = [
   "Every student brings different strengths, gaps, and academic habits to the exam journey.",

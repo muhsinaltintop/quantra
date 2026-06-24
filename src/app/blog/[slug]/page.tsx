@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
 import { articles, getArticleBySlug } from "@/lib/blog";
+import { createMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return articles.map((article) => ({ slug: article.slug }));
@@ -14,10 +15,14 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     return { title: "Article not found | QUANTRA Education" };
   }
 
-  return {
-    title: `${article.title} | QUANTRA Education`,
+  return createMetadata({
+    title: article.title,
     description: article.excerpt,
-  };
+    path: `/blog/${article.slug}`,
+    type: "article",
+    publishedTime: article.date,
+    keywords: [article.category, "GCSE tuition", "IGCSE tuition"],
+  });
 }
 
 export default function BlogArticlePage({ params }: { params: { slug: string } }) {

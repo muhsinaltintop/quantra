@@ -1,7 +1,21 @@
+import type { Metadata } from "next";
+import { courseJsonLd, createMetadata, JsonLd } from "@/lib/seo";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 
+export const metadata: Metadata = createMetadata({
+  title: "IGCSE Mathematics Tuition",
+  description: "Cambridge-focused IGCSE Maths tutoring online for international students preparing for syllabus mastery and exam confidence.",
+  path: "/subjects/igcse-mathematics",
+  keywords: ['IGCSE Maths tutoring', 'IGCSE tuition', 'Cambridge IGCSE preparation', 'IGCSE tutors Dubai'],
+});
+
+const courseStructuredData = courseJsonLd({
+  name: "IGCSE Mathematics Tuition",
+  description: "Cambridge-focused IGCSE Maths tutoring online for international students preparing for syllabus mastery and exam confidence.",
+  path: "/subjects/igcse-mathematics",
+});
 const topicAreas = [
   "Number",
   "Algebra",
@@ -56,6 +70,7 @@ const parentReasons = [
 export default function IGCSEMathematicsPage() {
   return (
     <>
+      <JsonLd data={courseStructuredData} />
       <section className="academic-pattern relative overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-400/50 to-transparent" />
         <Container className="grid gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-28">

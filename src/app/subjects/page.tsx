@@ -1,6 +1,15 @@
+import type { Metadata } from "next";
+import { createMetadata } from "@/lib/seo";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
+
+export const metadata: Metadata = createMetadata({
+  title: "GCSE & IGCSE Subjects",
+  description: "Subject specialist GCSE Maths tutoring, IGCSE Maths tutoring, GCSE Physics tutoring, and IGCSE Physics tutoring online.",
+  path: "/subjects",
+  keywords: ["GCSE Maths tutoring", "IGCSE Physics tutoring", "Cambridge IGCSE preparation"],
+});
 
 const initialSubjects = [
   {

@@ -1,5 +1,25 @@
+import type { Metadata } from "next";
+import { createMetadata, faqJsonLd, JsonLd } from "@/lib/seo";
 import { AssessmentEnquiryForm } from "./_components/AssessmentEnquiryForm";
 import { Container } from "@/components/Container";
+
+export const metadata: Metadata = createMetadata({
+  title: "Contact QUANTRA Education",
+  description: "Book a free academic assessment for GCSE tuition, IGCSE tuition, online GCSE Maths tutoring, and online Physics tutoring.",
+  path: "/contact",
+  keywords: ["Online GCSE tuition", "Online IGCSE tuition", "GCSE tutors UAE"],
+});
+
+const contactFaqStructuredData = faqJsonLd([
+  {
+    question: "Can families in Dubai or the UAE book online GCSE tuition?",
+    answer: "Yes. QUANTRA provides online GCSE and IGCSE tuition for students in Dubai, the UAE, and other international locations.",
+  },
+  {
+    question: "What happens after the free academic assessment?",
+    answer: "Families receive guidance on the student’s current level, priority gaps, and the most suitable GCSE or IGCSE preparation pathway.",
+  },
+]);
 
 const benefits = [
   "Personalised GCSE and IGCSE pathway advice",
@@ -8,7 +28,12 @@ const benefits = [
 ];
 
 export default function ContactPage() {
-  return <ContactAssessmentPage />;
+  return (
+    <>
+      <JsonLd data={contactFaqStructuredData} />
+      <ContactAssessmentPage />
+    </>
+  );
 }
 
 export function ContactAssessmentPage() {
