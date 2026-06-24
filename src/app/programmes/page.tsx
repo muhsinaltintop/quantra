@@ -3,6 +3,10 @@ import { courseJsonLd, createMetadata, JsonLd } from "@/lib/seo";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
+import { AssessmentCTA } from "@/components/AssessmentCTA";
+import { FAQSection } from "@/components/FAQSection";
+import { ResultsSection } from "@/components/ResultsSection";
+import { TrustBar } from "@/components/TrustBar";
 
 export const metadata: Metadata = createMetadata({
   title: "GCSE & IGCSE Tuition Programmes",
@@ -94,6 +98,13 @@ const programmeDetails = [
   },
 ];
 
+const programmeFaqs = [
+  { question: "Which programme should my child start with?", answer: "The free assessment helps identify whether ongoing small group learning, intensive revision, or mock exam preparation is the most appropriate starting point." },
+  { question: "Can programmes support Cambridge IGCSE learners?", answer: "Yes. QUANTRA includes Cambridge-focused preparation and uses syllabus clarity, exam-style practice, and structured feedback to guide international learners." },
+  { question: "Is one-to-one support required?", answer: "Not always. Many students benefit from group structure, while optional one-to-one support can be added for specific gaps, confidence issues, or assessment deadlines." },
+  { question: "Do programmes promise grade improvements?", answer: "No. QUANTRA avoids guaranteed outcome claims. Progress depends on the student’s starting point, attendance, independent practice, and assessment context." },
+];
+
 export default function ProgrammesPage() {
   return (
     <>
@@ -114,6 +125,8 @@ export default function ProgrammesPage() {
           </div>
         </Container>
       </section>
+
+      <TrustBar />
 
       <section className="bg-white py-20">
         <Container>
@@ -194,22 +207,21 @@ export default function ProgrammesPage() {
         </Container>
       </section>
 
-      <section className="academic-pattern py-20">
-        <Container>
-          <div className="rounded-[2rem] border border-white/70 bg-white/75 p-8 text-center shadow-academic backdrop-blur sm:p-12">
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-gold-500">Free academic assessment</p>
-            <h2 className="mx-auto mt-4 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-navy-950 sm:text-5xl">
-              Find the Right Programme for Your Child
-            </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-navy-800/75 sm:text-lg">
-              Start with a free academic assessment and receive guidance on the most suitable learning pathway.
-            </p>
-            <div className="mt-8">
-              <Button href="/contact">Book a Free Assessment</Button>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <ResultsSection background="white" />
+
+      <FAQSection
+        eyebrow="Programmes FAQ"
+        title="Questions about choosing a programme."
+        description="Parent-focused answers to help you choose support without overclaiming outcomes."
+        faqs={programmeFaqs}
+        background="parchment"
+      />
+
+      <AssessmentCTA
+        title="Find the Right Programme for Your Child"
+        description="Start with a free academic assessment and receive guidance on the most suitable learning pathway."
+        href="/contact"
+      />
     </>
   );
 }

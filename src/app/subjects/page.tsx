@@ -3,6 +3,9 @@ import { createMetadata } from "@/lib/seo";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
+import { AssessmentCTA } from "@/components/AssessmentCTA";
+import { FAQSection } from "@/components/FAQSection";
+import { TrustBar } from "@/components/TrustBar";
 
 export const metadata: Metadata = createMetadata({
   title: "GCSE & IGCSE Subjects",
@@ -79,6 +82,13 @@ const supportPillars = [
   },
 ];
 
+const subjectsFaqs = [
+  { question: "Which subjects does QUANTRA currently support?", answer: "QUANTRA currently highlights Mathematics and Physics pathways for GCSE and IGCSE students, with additional subjects planned as specialist resources are developed." },
+  { question: "Is the subject support Cambridge-focused?", answer: "Yes. IGCSE pathways include Cambridge-focused preparation, with attention to syllabus coverage, exam technique, and structured practice." },
+  { question: "Can my child get help with a specific topic?", answer: "Yes. The assessment and consultation help identify priority topics, then the recommended pathway can focus on gaps, confidence, and exam-style application." },
+  { question: "Are more subjects guaranteed by a specific date?", answer: "No. Additional subjects will be introduced carefully as suitable teachers, curriculum planning, and learning resources are ready." },
+];
+
 export default function SubjectsPage() {
   return (
     <>
@@ -104,6 +114,8 @@ export default function SubjectsPage() {
           </div>
         </Container>
       </section>
+
+      <TrustBar />
 
       <section id="initial-subject-focus" className="bg-white py-20">
         <Container>
@@ -194,22 +206,19 @@ export default function SubjectsPage() {
         </Container>
       </section>
 
-      <section className="academic-pattern py-20">
-        <Container>
-          <div className="rounded-[2rem] border border-white/70 bg-white/75 p-8 text-center shadow-academic backdrop-blur sm:p-12">
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-gold-500">Free academic assessment</p>
-            <h2 className="mx-auto mt-4 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-navy-950 sm:text-5xl">
-              Not sure which subject support your child needs?
-            </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-navy-800/75 sm:text-lg">
-              Begin with a clear academic assessment and receive parent-friendly guidance on the most suitable next step.
-            </p>
-            <div className="mt-8">
-              <Button href="/contact">Book a Free Assessment</Button>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <FAQSection
+        eyebrow="Subjects FAQ"
+        title="Questions about subject support."
+        description="Straightforward guidance on current GCSE and IGCSE subject pathways and future expansion."
+        faqs={subjectsFaqs}
+        background="parchment"
+      />
+
+      <AssessmentCTA
+        title="Not sure which subject support your child needs?"
+        description="Begin with a clear academic assessment and receive parent-friendly guidance on the most suitable next step."
+        href="/contact"
+      />
     </>
   );
 }
