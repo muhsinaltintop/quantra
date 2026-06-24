@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { createMetadata } from "@/lib/seo";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 
@@ -25,10 +26,12 @@ const resourceCategories = [
   },
 ];
 
-export const metadata: Metadata = {
-  title: "GCSE & IGCSE Resources | QUANTRA Education",
-  description: "A growing resource library for GCSE and IGCSE revision guides, study planners, formula sheets, and parent guides.",
-};
+export const metadata: Metadata = createMetadata({
+  title: "GCSE & IGCSE Revision Resources",
+  description: "Free GCSE and IGCSE revision guides, study planners, formula sheets, and parent resources for online exam preparation.",
+  path: "/resources",
+  keywords: ['GCSE tuition', 'IGCSE tuition', 'Cambridge IGCSE preparation'],
+});
 
 export default function ResourcesPage() {
   return (

@@ -1,6 +1,28 @@
+import type { Metadata } from "next";
+import { courseJsonLd, createMetadata, JsonLd } from "@/lib/seo";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
+
+export const metadata: Metadata = createMetadata({
+  title: "GCSE & IGCSE Tuition Programmes",
+  description: "Explore online GCSE tuition and online IGCSE tuition through small group classes, intensive revision courses, and mock exam preparation.",
+  path: "/programmes",
+  keywords: ["GCSE tuition", "IGCSE tuition", "Online IGCSE tuition"],
+});
+
+const programmeStructuredData = [
+  courseJsonLd({
+    name: "Online GCSE Tuition Programmes",
+    description: "Small group classes, intensive revision, and mock exam preparation for GCSE students.",
+    path: "/programmes",
+  }),
+  courseJsonLd({
+    name: "Online IGCSE Tuition Programmes",
+    description: "Cambridge-focused IGCSE tuition programmes for international learners.",
+    path: "/programmes",
+  }),
+];
 
 const programmeOverview = [
   {
@@ -75,6 +97,7 @@ const programmeDetails = [
 export default function ProgrammesPage() {
   return (
     <>
+      <JsonLd data={programmeStructuredData} />
       <section className="academic-pattern relative overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-400/50 to-transparent" />
         <Container className="py-20 lg:py-28">

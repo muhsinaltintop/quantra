@@ -1,7 +1,21 @@
+import type { Metadata } from "next";
+import { courseJsonLd, createMetadata, JsonLd } from "@/lib/seo";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 
+export const metadata: Metadata = createMetadata({
+  title: "GCSE Mathematics Tuition",
+  description: "Online GCSE Maths tutoring with structured topic teaching, guided exam practice, and progress monitoring for ambitious GCSE students.",
+  path: "/subjects/gcse-mathematics",
+  keywords: ['GCSE Maths tutoring', 'GCSE tuition', 'Online GCSE tuition'],
+});
+
+const courseStructuredData = courseJsonLd({
+  name: "GCSE Mathematics Tuition",
+  description: "Online GCSE Maths tutoring with structured topic teaching, guided exam practice, and progress monitoring for ambitious GCSE students.",
+  path: "/subjects/gcse-mathematics",
+});
 const programmeFit = [
   "Need stronger foundations in key maths topics",
   "Want to improve exam confidence",
@@ -61,6 +75,7 @@ const expectedOutcomes = [
 export default function GCSEMathematicsPage() {
   return (
     <>
+      <JsonLd data={courseStructuredData} />
       <section className="academic-pattern relative overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-400/50 to-transparent" />
         <Container className="grid gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-28">

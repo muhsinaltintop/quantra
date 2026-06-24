@@ -1,5 +1,19 @@
+import type { Metadata } from "next";
+import { courseJsonLd, createMetadata, JsonLd } from "@/lib/seo";
 import { PhysicsSubjectPage } from "../_components/PhysicsSubjectPage";
 
+export const metadata: Metadata = createMetadata({
+  title: "IGCSE Physics Tuition",
+  description: "Cambridge-focused IGCSE Physics tutoring online for international students who need structured preparation and exam practice.",
+  path: "/subjects/igcse-physics",
+  keywords: ['IGCSE Physics tutoring', 'IGCSE tuition', 'Cambridge IGCSE preparation', 'IGCSE tutors Dubai'],
+});
+
+const courseStructuredData = courseJsonLd({
+  name: "IGCSE Physics Tuition",
+  description: "Cambridge-focused IGCSE Physics tutoring online for international students who need structured preparation and exam practice.",
+  path: "/subjects/igcse-physics",
+});
 const igcsePhysicsPage = {
   eyebrow: "IGCSE Physics",
   headline: "IGCSE Physics Preparation",
@@ -102,5 +116,10 @@ const igcsePhysicsPage = {
 };
 
 export default function IGCSEPhysicsPage() {
-  return <PhysicsSubjectPage {...igcsePhysicsPage} />;
+  return (
+    <>
+      <JsonLd data={courseStructuredData} />
+      <PhysicsSubjectPage {...igcsePhysicsPage} />
+    </>
+  );
 }

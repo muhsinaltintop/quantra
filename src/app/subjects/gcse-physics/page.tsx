@@ -1,5 +1,19 @@
+import type { Metadata } from "next";
+import { courseJsonLd, createMetadata, JsonLd } from "@/lib/seo";
 import { PhysicsSubjectPage } from "../_components/PhysicsSubjectPage";
 
+export const metadata: Metadata = createMetadata({
+  title: "GCSE Physics Tuition",
+  description: "Online GCSE Physics tutoring that builds conceptual clarity, calculation confidence, practical understanding, and exam technique.",
+  path: "/subjects/gcse-physics",
+  keywords: ['GCSE Physics tutoring', 'GCSE tuition', 'Online GCSE tuition'],
+});
+
+const courseStructuredData = courseJsonLd({
+  name: "GCSE Physics Tuition",
+  description: "Online GCSE Physics tutoring that builds conceptual clarity, calculation confidence, practical understanding, and exam technique.",
+  path: "/subjects/gcse-physics",
+});
 const gcsePhysicsPage = {
   eyebrow: "GCSE Physics",
   headline: "GCSE Physics Preparation",
@@ -102,5 +116,10 @@ const gcsePhysicsPage = {
 };
 
 export default function GCSEPhysicsPage() {
-  return <PhysicsSubjectPage {...gcsePhysicsPage} />;
+  return (
+    <>
+      <JsonLd data={courseStructuredData} />
+      <PhysicsSubjectPage {...gcsePhysicsPage} />
+    </>
+  );
 }

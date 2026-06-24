@@ -1,6 +1,15 @@
+import type { Metadata } from "next";
+import { createMetadata } from "@/lib/seo";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
+
+export const metadata: Metadata = createMetadata({
+  title: "GCSE & IGCSE Tuition Pricing",
+  description: "Review QUANTRA Education pricing for structured online GCSE tuition and IGCSE tuition programmes.",
+  path: "/pricing",
+  keywords: ["GCSE tuition", "IGCSE tuition", "Online GCSE tuition"],
+});
 
 const pricingTiers = [
   {
