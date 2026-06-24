@@ -1,14 +1,12 @@
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
-
-const trustPhrases = [
-  "UK-Based Online Education",
-  "Cambridge-Focused Preparation",
-  "Qualified Expert Teachers",
-  "Small Group Learning",
-  "Exam-Oriented Progress",
-];
+import { AssessmentCTA } from "@/components/AssessmentCTA";
+import { FAQSection } from "@/components/FAQSection";
+import { ProcessTimeline } from "@/components/ProcessTimeline";
+import { ResultsSection } from "@/components/ResultsSection";
+import { TestimonialSection } from "@/components/TestimonialSection";
+import { TrustBar } from "@/components/TrustBar";
 
 const whyQuantraCards = [
   {
@@ -66,34 +64,34 @@ const platformBenefits = [
 ];
 
 const studentJourneySteps = [
-  "Complete the enquiry form",
-  "Take a free academic assessment",
-  "Attend an academic consultation",
-  "Receive a personalised study plan",
-  "Join the right programme",
-  "Track progress and prepare for exams",
+  { title: "Complete the enquiry form", description: "Share your child’s subject, exam board, current confidence level, and academic goals." },
+  { title: "Take a free academic assessment", description: "Identify strengths, gaps, and preparation priorities before choosing a programme." },
+  { title: "Attend an academic consultation", description: "Discuss the assessment outcome with parent-friendly guidance and clear next steps." },
+  { title: "Receive a personalised study plan", description: "Understand the recommended pathway, subject focus, and learning rhythm." },
+  { title: "Join the right programme", description: "Begin structured online teaching matched to your child’s needs and timetable." },
+  { title: "Track progress and prepare for exams", description: "Use regular feedback and exam-style practice to support confident preparation." },
 ];
 
-const placeholderTestimonials = [
+const homepageFaqs = [
   {
-    quote:
-      "QUANTRA gave us a clear picture of our daughter’s strengths and gaps. The consultation felt thoughtful, structured, and genuinely academic.",
-    name: "Sarah Al-Mansoori",
-    role: "Parent",
-    location: "Dubai",
+    question: "Is QUANTRA suitable for my child’s exam board?",
+    answer:
+      "QUANTRA focuses on GCSE and IGCSE preparation, with Cambridge-focused pathways for international learners. The free assessment helps confirm the most suitable support route.",
   },
   {
-    quote:
-      "The lessons are focused and easy to follow. I like how every topic links back to exam questions and how to improve my answers.",
-    name: "Ahmed Khan",
-    role: "IGCSE Student",
+    question: "How do parents understand progress?",
+    answer:
+      "Families receive clear guidance on strengths, gaps, priorities, and next steps so progress feels structured rather than vague.",
   },
   {
-    quote:
-      "We wanted serious preparation without overcrowded classes. QUANTRA’s small group approach feels premium and very well organised.",
-    name: "Noura Al-Harbi",
-    role: "Parent",
-    location: "Riyadh",
+    question: "Are classes online?",
+    answer:
+      "Yes. QUANTRA is designed for online learning flexibility, combining live teaching with structured preparation and parent-friendly communication.",
+  },
+  {
+    question: "Will the assessment guarantee a result?",
+    answer:
+      "No. The assessment is used to recommend an appropriate pathway. Outcomes depend on the student’s starting point, attendance, practice, and wider academic context.",
   },
 ];
 
@@ -152,17 +150,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="border-y border-navy-900/10 bg-navy-950 py-5 text-white">
-        <Container>
-          <div className="flex flex-wrap items-center justify-center gap-3 md:justify-between">
-            {trustPhrases.map((phrase) => (
-              <div key={phrase} className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white/80">
-                {phrase}
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <TrustBar />
 
       <section className="bg-white py-20">
         <Container>
@@ -253,72 +241,28 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="bg-ivory py-20">
-        <Container>
-          <SectionHeading
-            eyebrow="Student Journey"
-            title="A clear route from enquiry to exam readiness."
-            description="Families receive a structured onboarding experience before students enter the programme best suited to their goals."
-            align="center"
-          />
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {studentJourneySteps.map((step, index) => (
-              <article key={step} className="rounded-3xl border border-navy-900/10 bg-white p-7 shadow-sm">
-                <p className="text-xs font-bold uppercase tracking-[0.28em] text-gold-500">
-                  Step {String(index + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-4 font-serif text-2xl font-semibold text-navy-950">{step}</h3>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <ProcessTimeline
+        title="A clear route from enquiry to exam readiness."
+        description="Families receive a structured onboarding experience before students enter the programme best suited to their goals."
+        steps={studentJourneySteps}
+      />
 
-      <section className="bg-white py-20">
-        <Container>
-          <SectionHeading
-            eyebrow="Testimonials"
-            title="What families and students may experience with QUANTRA."
-            description="Placeholder testimonials for launch-stage website content, written to reflect the intended premium student and parent experience."
-            align="center"
-          />
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {placeholderTestimonials.map((testimonial) => (
-              <article key={testimonial.name} className="rounded-3xl border border-navy-900/10 bg-ivory p-8 shadow-sm">
-                <p className="text-4xl leading-none text-gold-400">“</p>
-                <p className="mt-3 text-sm leading-7 text-navy-800/75">{testimonial.quote}</p>
-                <div className="mt-7 border-t border-navy-900/10 pt-5">
-                  <p className="font-serif text-xl font-semibold text-navy-950">{testimonial.name}</p>
-                  <p className="mt-1 text-sm font-semibold text-navy-700">
-                    {testimonial.role}{testimonial.location ? `, ${testimonial.location}` : ""}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <ResultsSection />
 
-      <section className="bg-parchment py-20">
-        <Container>
-          <div className="overflow-hidden rounded-[2rem] bg-navy-950 p-8 text-white shadow-academic sm:p-12 lg:p-16">
-            <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-              <div>
-                <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-gold-300">Free assessment</p>
-                <h2 className="font-serif text-4xl font-semibold tracking-tight sm:text-5xl">
-                  Start with a Free Academic Assessment
-                </h2>
-                <p className="mt-5 max-w-3xl text-base leading-8 text-white/72 sm:text-lg">
-                  Discover your child’s current academic level and receive clear guidance on the right preparation pathway.
-                </p>
-              </div>
-              <Button href="/contact" variant="secondary" className="bg-white text-navy-950 hover:bg-gold-300">
-                Book a Free Assessment
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <TestimonialSection />
+
+      <FAQSection
+        title="Questions parents ask before booking."
+        description="Clear answers to help families decide whether QUANTRA is the right academic environment for their child."
+        faqs={homepageFaqs}
+      />
+
+      <AssessmentCTA
+        title="Start with a Free Academic Assessment"
+        description="Discover your child’s current academic level and receive clear guidance on the right preparation pathway."
+        href="/contact"
+        variant="dark"
+      />
     </>
   );
 }

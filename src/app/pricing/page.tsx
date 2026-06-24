@@ -3,6 +3,9 @@ import { createMetadata } from "@/lib/seo";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
+import { AssessmentCTA } from "@/components/AssessmentCTA";
+import { FAQSection } from "@/components/FAQSection";
+import { TrustBar } from "@/components/TrustBar";
 
 export const metadata: Metadata = createMetadata({
   title: "GCSE & IGCSE Tuition Pricing",
@@ -67,7 +70,7 @@ const comparisonRows = [
   "Enhanced progress monitoring",
 ];
 
-const faqs = [
+const pricingFaqs = [
   {
     question: "Do I need an assessment first?",
     answer:
@@ -116,6 +119,8 @@ export default function PricingPage() {
           </div>
         </Container>
       </section>
+
+      <TrustBar />
 
       <section className="bg-white py-20">
         <Container>
@@ -214,40 +219,17 @@ export default function PricingPage() {
         </Container>
       </section>
 
-      <section className="bg-white py-20">
-        <Container>
-          <SectionHeading
-            eyebrow="Pricing FAQ"
-            title="Common questions before booking an assessment."
-            align="center"
-          />
-          <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-2">
-            {faqs.map((faq) => (
-              <article key={faq.question} className="rounded-3xl border border-navy-900/10 bg-ivory p-7 shadow-sm">
-                <h2 className="font-serif text-2xl font-semibold text-navy-950">{faq.question}</h2>
-                <p className="mt-4 text-sm leading-7 text-navy-800/75">{faq.answer}</p>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <FAQSection
+        eyebrow="Pricing FAQ"
+        title="Common questions before booking an assessment."
+        description="Transparent guidance for parents comparing support levels and indicative monthly options."
+        faqs={pricingFaqs}
+      />
 
-      <section className="academic-pattern py-20">
-        <Container>
-          <div className="rounded-[2rem] border border-white/70 bg-white/75 p-8 text-center shadow-academic backdrop-blur sm:p-12">
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-gold-500">Free academic assessment</p>
-            <h2 className="mx-auto mt-4 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-navy-950 sm:text-5xl">
-              Confirm the Right Pricing Tier for Your Child
-            </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-navy-800/75 sm:text-lg">
-              Book a free assessment and receive guidance on the best-fit programme, subject selection, and support level.
-            </p>
-            <div className="mt-8">
-              <Button href="/free-assessment">Book a Free Assessment</Button>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <AssessmentCTA
+        title="Confirm the Right Pricing Tier for Your Child"
+        description="Book a free assessment and receive guidance on the best-fit programme, subject selection, and support level."
+      />
     </>
   );
 }
